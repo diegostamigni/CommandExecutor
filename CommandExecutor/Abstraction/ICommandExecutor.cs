@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace CommandExecutor.Abstraction
 {
-	public interface ICommandExecutor
+	public interface ICommandExecutor<in TCommand> where TCommand : ICommand
 	{
-		Task ExecuteAsync(ICommand command, CancellationToken token = default);
+		Task ExecuteAsync(TCommand command, CancellationToken token = default);
 	}
 }

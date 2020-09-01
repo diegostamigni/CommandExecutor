@@ -2,6 +2,6 @@
 {
 	public interface ICommandExecutorResolver
 	{
-		ICommandExecutor Resolve(ICommand command);
+		ICommandExecutor<TCommand> Resolve<TCommand>(TCommand command) where TCommand : ICommand;
 	}
 }

@@ -1,18 +1,18 @@
-﻿using System;
-using CommandExecutor.Abstraction;
+﻿using CommandExecutor.Abstraction;
+using Lamar;
 
 namespace CommandExecutor
 {
 	public class CommandExecutorResolver : ICommandExecutorResolver
 	{
-		private readonly Func<string, ICommandExecutor> commandExecutors;
+		private readonly IContainer container;
 
-		public CommandExecutorResolver(Func<string, ICommandExecutor> commandExecutors)
+		public CommandExecutorResolver(IContainer container)
 		{
-			this.commandExecutors = commandExecutors;
+			this.container = container;
 		}
 
-		public ICommandExecutor Resolve(ICommand command)
-			=> this.commandExecutors(command.GetType().Name);
+		public ICommandExecutor<TCommand> Resolve<TCommand>(TCommand command) where TCommand : ICommand
+			=> this.container.GetInstance<ICommandExecutor<TCommand>>(command.GetType().Name);
 	}
 }

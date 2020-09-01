@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Reflection;
 using BaselineTypeDiscovery;
 using CommandExecutor.Abstraction;
 using CommandExecutor.Attributes;
@@ -15,20 +14,29 @@ namespace SampleApp.DependencyInjection
 		{
 			var commandExecutorTypes = types
 				.AllTypes()
-				.Where(x => typeof(ICommandExecutor).IsAssignableFrom(x) && x.IsClass && !x.IsAbstract && TypeExtensions.HasAttribute<SupportsCommandAttribute>(x));
+				.Where(x => x.IsClass && !x.IsAbstract && TypeExtensions.HasAttribute<SupportsCommandAttribute>(x));
 
 			foreach (var commandExecutorType in commandExecutorTypes)
 			{
-				var attr = commandExecutorType.GetCustomAttribute<SupportsCommandAttribute>();
-				if (attr is null)
+				var interfaceType = commandExecutorType
+					.GetInterfaces()
+					.Where(x => x.Name == typeof(ICommandExecutor<>).Name)
+					.Select(x => new
+					{
+						Interface = x,
+						Command = x.GenericTypeArguments.SingleOrDefault()
+					})
+					.SingleOrDefault();
+
+				if (interfaceType is null)
 				{
 					continue;
 				}
 
 				services
-					.For(typeof(ICommandExecutor))
+					.For(interfaceType.Interface)
 					.Use(commandExecutorType)
-					.Named(attr.CommandType.Name)
+					.Named(interfaceType.Command?.Name)
 					.Scoped();
 			}
 		}

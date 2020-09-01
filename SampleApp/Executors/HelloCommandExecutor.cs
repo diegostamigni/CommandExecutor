@@ -8,11 +8,13 @@ using SampleApp.Commands;
 namespace SampleApp.Executors
 {
 	[SupportsCommand(typeof(HelloCommand))]
-	public class HelloCommandExecutor : ICommandExecutor
+	public class HelloCommandExecutor : ICommandExecutor<HelloCommand>
 	{
-		public Task ExecuteAsync(ICommand command, CancellationToken token = default)
+		public Task ExecuteAsync(HelloCommand command, CancellationToken token = default)
 		{
-			throw new NotImplementedException();
+			Console.WriteLine(command.Description);
+
+			return Task.CompletedTask;
 		}
 	}
 }
