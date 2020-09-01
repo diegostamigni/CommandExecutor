@@ -20,11 +20,11 @@ namespace SampleApp.DependencyInjection
 			{
 				var interfaceType = commandExecutorType
 					.GetInterfaces()
-					.Where(x => x.Name == typeof(ICommandExecutor<>).Name)
+					.Where(x => x.Name == typeof(ICommandExecutor<,>).Name)
 					.Select(x => new
 					{
 						Interface = x,
-						Command = x.GenericTypeArguments.SingleOrDefault()
+						Command = x.GenericTypeArguments.FirstOrDefault()
 					})
 					.SingleOrDefault();
 

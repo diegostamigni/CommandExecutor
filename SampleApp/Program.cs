@@ -17,8 +17,8 @@ namespace SampleApp
 
 			var commandExecutorResolver = container.GetInstance<ICommandExecutorResolver>();
 			var command = new HelloCommand();
-			var commandExecutor = commandExecutorResolver.Resolve(command);
-			await commandExecutor.ExecuteAsync(command).ConfigureAwait(false);
+			var commandExecutor = commandExecutorResolver.Resolve<HelloCommand, bool>(command);
+			var result = await commandExecutor.ExecuteAsync(command).ConfigureAwait(false);
 		}
 	}
 }
