@@ -2,18 +2,15 @@
 using System.Threading;
 using System.Threading.Tasks;
 using CommandExecutor.Abstraction;
-using CommandExecutor.Attributes;
 using SampleApp.Commands;
 
 namespace SampleApp.Executors
 {
-	[SupportsCommand(typeof(HelloCommand))]
-	public class HelloCommandExecutor : ICommandExecutor<HelloCommand, bool>
+	public class HelloCommandWithReturnExecutor : ICommandExecutor<HelloCommand, bool>
 	{
 		public Task<bool> ExecuteAsync(HelloCommand command, CancellationToken token = default)
 		{
-			Console.WriteLine(command.Description);
-
+			Console.WriteLine($"{GetType().Name}: {command.Description}");
 			return Task.FromResult(true);
 		}
 	}

@@ -1,5 +1,4 @@
-﻿using CommandExecutor;
-using CommandExecutor.Abstraction;
+﻿using CommandExecutor.DependencyInjection;
 using Lamar;
 
 namespace SampleApp.DependencyInjection
@@ -11,12 +10,10 @@ namespace SampleApp.DependencyInjection
 			Scan(s =>
 			{
 				s.TheCallingAssembly();
-				s.With(new HelloCommandExecutorRegistrationConvention());
+				s.With(new CommandExecutorRegistrationConvention());
 			});
 
-			For<ICommandExecutorResolver>()
-				.Use<CommandExecutorResolver>()
-				.Singleton();
+			IncludeRegistry<CommandExecutorRegistry>();
 		}
 	}
 }
