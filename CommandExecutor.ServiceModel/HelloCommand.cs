@@ -1,6 +1,6 @@
-﻿using CommandExecutor.Abstraction;
+﻿using CommandExecutor.Core.Abstraction;
 
-namespace SampleApp.Commands
+namespace CommandExecutor.ServiceModel
 {
 	public class HelloCommand : ICommand
 	{

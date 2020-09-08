@@ -1,4 +1,4 @@
-﻿namespace CommandExecutor.Abstraction
+﻿namespace CommandExecutor.Core.Abstraction
 {
 	public interface ICommandExecutorResolver
 	{

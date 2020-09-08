@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using CommandExecutor.Abstraction;
-using SampleApp.Commands;
+using CommandExecutor.Core.Abstraction;
+using CommandExecutor.ServiceModel;
 
-namespace SampleApp.Executors
+namespace CommandExecutor.Executors
 {
 	public class HelloCommandWithReturnExecutor : ICommandExecutor<HelloCommand, bool>
 	{

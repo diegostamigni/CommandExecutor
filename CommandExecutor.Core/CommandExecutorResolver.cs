@@ -1,7 +1,7 @@
-﻿using CommandExecutor.Abstraction;
+﻿using CommandExecutor.Core.Abstraction;
 using Lamar;
 
-namespace CommandExecutor
+namespace CommandExecutor.Core
 {
 	public class CommandExecutorResolver : ICommandExecutorResolver
 	{

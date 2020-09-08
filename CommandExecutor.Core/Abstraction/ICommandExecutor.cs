@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace CommandExecutor.Abstraction
+namespace CommandExecutor.Core.Abstraction
 {
 	public interface ICommandExecutor<in TCommand> where TCommand : ICommand
 	{
