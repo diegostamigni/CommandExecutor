@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>CommandExecutor.Abstractions</PackageId>
+        <Description>CommandExecutor.Abstractions</Description>
+        <Version>0.0.1</Version>
+        <Authors>Diego Stamigni</Authors>
+        <Company>Area Engineering Ltd</Company>
+        <PackageTags>mediator;commandexecutor</PackageTags>
+    </PropertyGroup>
+
+</Project>

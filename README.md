@@ -1,4 +1,5 @@
 # CommandExecutor
-A command-executor pattern based off of Command.
+A mediator pattern implementation called command-executor.
 
-![.NET Core](https://github.com/diegostamigni/CommandExecutor/workflows/.NET%20Core/badge.svg)
+[![Build Status](https://dev.azure.com/areaengineering/CommandExecutor/_apis/build/status/CommandExecutor?branchName=main)](https://dev.azure.com/areaengineering/CommandExecutor/_build/latest?definitionId=38&branchName=main)
+[![Build Status](https://dev.azure.com/areaengineering/CommandExecutor/_apis/build/status/CommandExecutor?branchName=development)](https://dev.azure.com/areaengineering/CommandExecutor/_build/latest?definitionId=38&branchName=development)

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AnalysisLevel>latest-Recommended</AnalysisLevel>
+        <LangVersion>latest</LangVersion>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>CommandExecutor</PackageId>
+        <Description>CommandExecutor</Description>
+        <Version>0.0.1</Version>
+        <Authors>Diego Stamigni</Authors>
+        <Company>Area Engineering Ltd</Company>
+        <PackageTags>mediator;commandexecutor</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CommandExecutor.Abstractions\CommandExecutor.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>
